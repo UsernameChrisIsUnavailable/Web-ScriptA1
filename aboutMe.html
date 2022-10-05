@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>About Me</title>
+
+    <meta name="viewport" content="width=device-width">
+    <!-- style sheet for computers or other full size displays-->
+    <link href="FullA1.css" rel="stylesheet" type="text/css" media="only screen and (min-width:960px)">
+    <!-- style sheet for tablets-->
+    <link href="TabletA1.css" rel="stylesheet" type="text/css" media="only screen and (min-width:481px) and (max-width:960px)">
+    <!-- style sheet for phones-->
+    <link href="PhoneA1.css" rel="stylesheet" type="text/css" media="only screen and (max-width:480px)">
+</head>
+<body>
+    <div id="wrapper">
+        <!--Creates Banner which is displayed at top of site-->
+        <div id="banner">
+            <h1>Christopher Niemela</h1>
+            <img src="Chris_N.jpg" alt="Chris N Avatar">
+        </div>
+
+        <!--Header above video-->
+        <h2>Hello my name is Chris Niemela and this site is for my Web and Script class!</h2>
+        <h4>I am a third year student at Ontario Tech University studying Technology Management. Outside of school I am a musician. This is my favourite song!</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?start=160" title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>
+        <button onclick="playPause()">Play or pause the video</button>
+        <script>
+            var myVideo = document.getElementById("video");
+            function playPause() {
+                if (myVideo.paused)
+                    myVideo.play();
+                else myVideo.pause();
+            }
+        </script>
+
+        <!--Footer used to navigate between tabs-->
+        <footer>
+            <nav>
+                <h4>
+                    <img src="Chris_N.jpg" alt="Chris N Avatar">
+                    <a href="index.html">Home</a> |
+                    <a href="aboutMe.html">About Me</a> |
+                    <a href="project.html">Project</a> |
+                    <a href="contact.html">Contact Me</a>
+                </h4>
+                <p>©2022 Chris Niemela - 100785015:  <a href="mailto:christopher.niemela@ontariotechu.net">christopher.niemela@ontariotechu.net</a></p>
+            </nav>
+        </footer>
+
+    </div>
+</body>
+</html>

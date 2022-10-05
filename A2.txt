@@ -1,0 +1,75 @@
+// Q2_100785015.cpp  Christopher Niemela
+#include <iostream>
+using namespace std;
+
+void childHeight(char gender, int heightM, int heightF);
+
+void childHeight(char gender, int heightM, int heightF) {
+	int heightChild, heightChildFt =0;
+
+	if (gender == 'M' || gender == 'm') {//if child is male
+		heightChild = ((heightF * 13 / 12) + heightM) / 2;
+		cout << "\nThe estimated height of the child is: " << heightChild << " inches" << endl;//displays in inches
+		
+		//to convert to feet and inches
+		while (heightChild>12){
+			
+				heightChild =heightChild- 12;
+				heightChildFt++;
+		}
+		cout << "  Or " << heightChildFt << " feet and " << heightChild << " inches" << endl;//displays in feet and inches
+	}
+
+	else if (gender == 'F' || gender == 'f') {//if child is female
+		heightChild = ((heightM * 12 / 13) + heightF) / 2;
+		cout << "\nThe estimated height of the child is: " << heightChild << endl;//displays in inches
+
+		//to convert to feet and inches
+		while (heightChild > 12) {
+
+			heightChild = heightChild - 12;
+			heightChildFt++;
+		}
+		cout << "  Or " << heightChildFt << " feet and " << heightChild << " inches" << endl;//displays in feet and inches
+
+	}
+	else {
+		cout << "you did not correctly enter the gender therefore the height cannot be calculated" << endl;
+	}
+}
+
+int main()
+{
+	char gender, exitCondition='Y';
+	int heightM, heightF, hMFeet, hFFeet; //hMFeet and hFFeet are used to take input in feet and then converted to inches -  stands for height mother/father feet 
+										//heightM and heightF are in inches
+										//M is mother and F is father
+
+
+	while (exitCondition == 'Y' || exitCondition == 'y') {
+
+		//parent input
+		cout << "Please enter height of the child's FATHER (first enter feet then inches): ";
+		cin >> hFFeet >> heightF;
+		cout << "Please enter height of the child's MOTHER (first enter feet then inches): ";
+		cin >> hMFeet >> heightM;
+
+		//converts data inputted as feet to inches
+		heightM = heightM + (hMFeet * 12);
+		heightF = heightF + (hFFeet * 12);
+
+		//cout << "Mother height: " << heightM << endl << "Father Height: " << heightF << endl;
+
+		//gender input
+		cout << "Please enter the gender of the child (M or F): ";
+		cin >> gender;
+
+		childHeight(gender, heightM, heightF);
+
+		//asks if user wants to continue the program
+		cout << "Would you like to continue (type Y for yes): ";
+		cin >> exitCondition;
+		cout << endl << endl;
+	}
+}
+

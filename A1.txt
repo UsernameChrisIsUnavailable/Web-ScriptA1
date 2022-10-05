@@ -1,0 +1,85 @@
+// Final Assignment Q1_100785015 - Christopher Niemela
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int dice();
+
+int main()
+{ 
+    srand(time(NULL));//used to generate different dice rolls each time function is called
+
+    int countW = 0, countL = 0;//used to count how many wins and losses 
+    double prob = 0;
+
+    for (int j = 0;j < 10000;j++) //entire game runs in this loop
+    {
+        cout << "GAME " << j + 1 <<":" <<endl;
+        int roll = dice(), point;//int roll is used to store the dice roll until it is called again
+
+        cout << "You rolled: " << roll << endl;//outputs roll to user
+
+        //checks for immediate win
+        if (roll == 7 || roll == 11) {
+            countW++;
+            cout << "You win :)" << " - Win #" << countW << endl;
+        }
+        //checks for immediate loss
+        else if (roll == 2 || roll == 3 || roll == 12) {
+            countL++;
+            cout << "You lose :(" << " - Loss #" << countL << endl;
+        }
+
+        //if not win or loss
+        else {
+            point = roll;//sets the point value equal to the dice roll
+            cout << "  You must now roll a " << point << " to win" << endl
+                << "  if you roll a 7 you lose" << endl;
+
+            roll = dice();//updates value of roll before entering the loop
+            cout << "You rolled: " << roll << endl;
+
+                    if (roll == point) {//checks if roll before loop is a win
+                        countW++;
+                        cout << "You win :)" << " - Win #" << countW << endl;
+                    }
+
+                    if (roll == 7) {//checks if roll before loop is a loss
+                        countL++;
+                        cout << "You lose :(" << " - Loss #" << countL << endl;
+                    }
+
+                    else {//enters loop if previous roll is not = to point
+                        while (roll != 7 && roll != point)   //while loop keeps rolling until 7 or point value is rolled
+                        {
+                            roll = dice();//updates value of roll
+                            cout << "You rolled: " << roll << endl;
+
+                            if (roll == 7) {//checks for loss
+                                countL++;
+                                cout << "You lose :(" << " - Loss #" << countL << endl;
+                            }
+
+                            if (roll == point) {//checks for win
+                                countW++;
+                                cout << "You win :)" << " - Win #" << countW << endl;
+                            }
+                        }
+                    } 
+        }
+        cout << endl;
+
+    }
+    double sum = countW + countL;
+
+    prob = countW/sum;
+   //prob=prob/ (countW + countL);//probability of winning
+    cout <<"Probability of winning is: "<< prob << endl;
+}
+
+int dice() {
+    int dice1 = rand() % 6 + 1;
+    int dice2 = rand() % 6 + 1;
+    return dice1 + dice2;
+}

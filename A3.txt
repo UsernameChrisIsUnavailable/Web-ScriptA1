@@ -1,0 +1,52 @@
+// Q3_100785015.cpp   Christopher Niemela
+
+#include <iostream>
+using namespace std;
+
+//returns the arithmetic mean of the four arguments.
+double stdDev(double s1, double s2, double s3, double s4);
+
+//returns the standard deviation of the four arguments.
+double  average(double s1, double s2, double s3, double s4);
+
+int main()
+{
+    double s1=0,s2,s3,s4;
+
+    while (s1 != -9999) {
+        //gets user input
+        cout << "Please enter 4 doubles (enter -9999 as first number to exit): ";
+        cin >> s1 >> s2 >> s3 >> s4;
+
+        //only outputs average and stdDev if user does not enter -9999
+        if (s1 != -9999) {
+            //calls functions
+            cout << "The Average is: " << average(s1, s2, s3, s4) << endl;
+            cout << "The Standard Deviation is: " << stdDev(s1, s2, s3, s4) << endl << endl;
+        }
+        else
+            cout << "Terminating";
+    }
+
+}
+
+double stdDev(double s1, double s2, double s3, double s4) {
+    double a = average(s1, s2, s3, s4);
+    double deviation = 0;
+
+    //finds (si−a)^2 for the entered values
+    deviation  = deviation  + (s1 - a) * (s1 - a);
+    deviation  = deviation  + (s2 - a) * (s2 - a);
+    deviation  = deviation  + (s3 - a) * (s3 - a);
+    deviation  = deviation  + (s4 - a) * (s4 - a);
+    
+    deviation  = deviation  / 4;//finds average of the 4 values
+    deviation  = sqrt(deviation );//takes square root
+
+
+    return deviation;
+}
+
+double average(double s1, double s2, double s3, double s4) {
+    return ((s1 + s2 + s3 + s4) / 4);
+}
