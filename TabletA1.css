@@ -9,7 +9,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff7cd8',GradientType=0 ); /* IE6-9 */
     /*^copied from colorzilla*/
     background-color: lightcyan;
-    font-family: 'Brush Script MT', Cambria, Perpetua, Garamond;
+    font-family: Cambria, Perpetua, Garamond;
     padding: 0px;
     margin: 0px;
 }
